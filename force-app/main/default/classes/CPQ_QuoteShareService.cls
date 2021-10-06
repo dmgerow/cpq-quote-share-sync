@@ -1,7 +1,8 @@
+// NOTE: This will only work in orgs where the quote sharing is private or read only
 public with sharing class CPQ_QuoteShareService {
     public static Boolean hasSharingRun = false;
 
-    public static void createQuoteAccess(List<SBQQ__Quote__c> newQuotes) {
+    public static void syncQuoteAccessFromAccountAndOpportunity(List<SBQQ__Quote__c> newQuotes) {
         // This logic uses a large number of queries and should never need to run twice during a
         // transaction. This boolean makes sure that the logic only runs once.
         if (hasSharingRun) {
