@@ -9,5 +9,19 @@
     "mobileSettings": {
       "enableS1EncryptedStoragePref2": false
     }
+  },
+  "objectSettings": {
+    "opportunity": {
+      "sharingModel": "private"
+    },
+    "account": {
+      "sharingModel": "private"
+    },
+    "case": {
+      "sharingModel": "private"
+    },
+    "contact": {
+      "sharingModel": "controlledByParent"
+    }
   }
 }
