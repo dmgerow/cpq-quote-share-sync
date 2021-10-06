@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingReason xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>AccountTeam__c</fullName>
-    <label>Account Team</label>
+    <fullName>Opportunity__c</fullName>
+    <label>Opportunity</label>
 </SharingReason>
