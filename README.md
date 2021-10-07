@@ -8,8 +8,8 @@ This should be used in situations where you would like a quote to get its shares
 
 1. Make sure that the account, opportunity, and quote access is set to private or read only
 
-2. <a href="https://githubsfdeploy.herokuapp.com">
-   <img alt="Deploy to Salesforce"
+2. <a href="https://githubsfdeploy.herokuapp.com?owner=dmgerow&repo=cpq-quote-share-sync">
+     <img alt="Deploy to Salesforce"
           src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
    </a>
 
