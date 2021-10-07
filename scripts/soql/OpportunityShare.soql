@@ -1,0 +1,1 @@
+SELECT Id, OpportunityId, RowCause, UserOrGroupId,OpportunityAccessLevel FROM OpportunityShare

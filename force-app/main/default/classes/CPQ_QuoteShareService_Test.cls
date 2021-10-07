@@ -90,7 +90,7 @@ private class CPQ_QuoteShareService_Test {
         );
         Test.stopTest();
         System.assertEquals(
-            1,
+            2,
             [
                 SELECT COUNT()
                 FROM SBQQ__Quote__Share
@@ -98,7 +98,7 @@ private class CPQ_QuoteShareService_Test {
                     ParentId = :testQuote.Id
                     AND RowCause IN (:Schema.SBQQ__Quote__Share.rowCause.Opportunity__c)
             ],
-            'There should be a share from the opportunity'
+            'There should be two shares from the opportunity (owner and shared user)'
         );
         System.assertEquals(
             1,

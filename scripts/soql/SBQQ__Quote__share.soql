@@ -1,0 +1,1 @@
+SELECT Id, ParentId, RowCause, UserOrGroupId,AccessLevel FROM SBQQ__Quote__Share
