@@ -15,6 +15,10 @@ This should be used in situations where you would like a quote to get its shares
 
 3. Call the `CPQ_QuoteShareService` from your triggers, batch jobs, etc.
 
+```java
+CPQ_QuoteShareService.syncQuoteAccessFromAccountAndOpportunity(quoteList); //where quoteList is a list of quotes
+```
+
 4. Update the test class to make sure that it passes in your org
 
 ## Scratch Org Notes
