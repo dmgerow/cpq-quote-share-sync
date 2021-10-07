@@ -21,6 +21,12 @@ CPQ_QuoteShareService.syncQuoteAccessFromAccountAndOpportunity(quoteList); //whe
 
 4. Update the test class to make sure that it passes in your org
 
+## Implementation Considerations
+
+- This should be implemented in triggers very sparingly. Calling it from any trigger except the quote will put you at risk of hitting governor limits.
+- Consider creating a scheduled batch job to call this code so that sharing is recalculated for quotes in a specific criteria. The code only creates or deletes shares if the change is required, so you should not have to worry about locking quotes while people are working on them or other unnecessary database activity.
+- Test this a lot before using it in production
+
 ## Scratch Org Notes
 
 You can make a scratch org with CPQ installed using the following command:
