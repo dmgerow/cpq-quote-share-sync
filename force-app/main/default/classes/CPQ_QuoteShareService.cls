@@ -62,7 +62,7 @@ public with sharing class CPQ_QuoteShareService {
                     SBQQ__Quote__Share quoteShare = new SBQQ__Quote__Share();
                     quoteShare.ParentId = newQuote.Id;
                     quoteShare.UserOrGroupId = accShare.UserOrGroupId;
-                    quoteShare.AccessLevel = accShare.OpportunityAccessLevel == 'All'
+                    quoteShare.AccessLevel = accShare.OpportunityAccessLevel == 'All' //all is not valid for custom shares
                         ? 'Edit'
                         : accShare.OpportunityAccessLevel;
                     quoteShare.RowCause = Schema.SBQQ__Quote__Share.rowCause.Account__c;
@@ -98,6 +98,7 @@ public with sharing class CPQ_QuoteShareService {
         delete quoteSharesToDelete;
     }
 
+    //we only want to copy shares from the account that grant opportunity access
     private static Map<Id, List<AccountShare>> getAccountSharesByAccountId(Set<Id> accountIds) {
         Map<Id, List<AccountShare>> accountSharesByAccountId = new Map<Id, List<AccountShare>>();
         for (AccountShare accountShare : [
@@ -165,6 +166,7 @@ public with sharing class CPQ_QuoteShareService {
         return quoteSharesByUniqueIdAndQuoteId;
     }
 
+    // this prevents duplicate shares from being created
     private static String generateQuoteShareUniqueId(SBQQ__Quote__Share quoteShare) {
         String uniqueId = quoteShare.ParentId;
         uniqueId += quoteShare.UserOrGroupId;
@@ -205,11 +207,13 @@ public with sharing class CPQ_QuoteShareService {
             [SELECT Id FROM Group WHERE Id IN :groupIds]
         );
         for (SBQQ__Quote__Share userShare : userShares) {
+            //prevents shares with inactive users
             if (activeUsersById.containsKey(userShare.UserOrGroupId)) {
                 actievSharesToInsert.add(userShare);
             }
         }
         for (SBQQ__Quote__Share groupShare : groupShares) {
+            //prevents shares with deleted groups/roles
             if (groupsById.containsKey(groupShare.UserOrGroupId)) {
                 actievSharesToInsert.add(groupShare);
             }
