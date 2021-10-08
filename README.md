@@ -29,7 +29,13 @@ CPQ_QuoteShareService.syncQuoteAccessFromAccountAndOpportunity(quoteList); //whe
 
 ## Scratch Org Notes
 
-You can make a scratch org with CPQ installed using the following command:
+First, make sure that all of the npm modules are installed
+
+```bash
+npm install
+```
+
+Then, you can make a scratch org with CPQ installed using the following command:
 
 ```bash
 npm run crate:scratch
